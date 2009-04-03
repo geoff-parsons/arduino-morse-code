@@ -1,3 +1,4 @@
+#include <ctype.h>
 
 #include "WProgram.h"
 void setup();
@@ -85,7 +86,7 @@ void blink(char str[]) {
     if(str[c] == ' ')
       word_gap();
     else {
-      int idx = (int)str[c] - 65;
+      int idx = (int)toupper(str[c]) - 65;
       char* chr = lookup[idx];
       for(ic=0; ic<strlen(chr); ic++) {
         blink_char(chr[ic]);
@@ -96,7 +97,7 @@ void blink(char str[]) {
 }
 
 void loop() {
-  blink("SOS");
+  blink("sos");
   delay(5000);
 }
 

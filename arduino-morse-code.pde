@@ -1,3 +1,4 @@
+#include <ctype.h>
 
 int ledPin = 13;                // LED connected to digital pin 13
 int length = 300;               // Unit length in miliseconds
@@ -75,7 +76,7 @@ void blink(char str[]) {
     if(str[c] == ' ')
       word_gap();
     else {
-      int idx = (int)str[c] - 65;
+      int idx = (int)toupper(str[c]) - 65;
       char* chr = lookup[idx];
       for(ic=0; ic<strlen(chr); ic++) {
         blink_char(chr[ic]);
@@ -86,6 +87,6 @@ void blink(char str[]) {
 }
 
 void loop() {
-  blink("SOS");
+  blink("sos");
   delay(5000);
 }
