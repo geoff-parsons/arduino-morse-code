@@ -99,6 +99,7 @@ void loop() {
   blink("SOS");
   delay(5000);
 }
+
 int main(void)
 {
 	init();
